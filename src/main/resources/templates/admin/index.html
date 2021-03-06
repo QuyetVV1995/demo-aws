@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{label.admin.menu.title}">Admin</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/df2eef8f6b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div th:replace="/../fragments/header :: header"> </div>
+<div th:replace="/../fragments/admin_menu :: admin_menu"> </div>
+<h1 style="text-align:center" th:text="#{label.admin.menu.title}">Admin page</h1>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th th:text="#{label.admin.index.fullname }" scope="col">Fullname</th>
+                    <th th:text="#{label.admin.index.email }" scope="col">Email</th>
+                    <th th:text="#{label.admin.index.post }" scope="col">Post</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="user:${userList}">
+                    <th scope="row" th:text="${user.id}">id</th>
+                    <td th:text="${user.fullname}">fullname</td>
+                    <td th:text="${user.email}">email</td>
+                    <td th:text="${user.posts.size()}">post</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-sm-3">
+            <div>
+                <script type="text/javascript" src="https://free-hit-counters.net/count/8a5g"></script><br>
+                <a href='https://www.symptoma.ro/'>Informații despre examenul clinic</a> <script type='text/javascript' src='https://whomania.com/ctr?id=2d7ea9c7184f58e8fc8d2c59654027470315bec0'></script>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div id="chart"></div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- you need to include the shieldui css and js assets in order for the charts to work -->
+<link rel="stylesheet" type="text/css" href="http://www.shieldui.com/shared/components/latest/css/light-bootstrap/all.min.css" />
+<script type="text/javascript" src="http://www.shieldui.com/shared/components/latest/js/shieldui-all.min.js"></script>
+
+<script th:inline="javascript" type="text/javascript">
+    jQuery(function ($) {
+    var N5 = [[${totalN5}]];
+    var N4 = [[${totalN4}]];
+    var N3 = [[${totalN3}]];
+    var N2 = [[${totalN2}]];
+    var N1 = [[${totalN1}]];
+    var totalITJP = [[${totalITJP}]];
+    var totalJava = [[${totalJava}]];
+    var totalSpring = [[${totalSpring}]];
+
+        $("#chart").shieldChart({
+            theme: "bootstrap",
+            exportOptions: {
+                image: false,
+                print: false
+            },
+            seriesSettings: {
+                bar: {
+                    stackMode: "normal"
+                }
+            },
+            axisX: {
+                categoricalValues: [
+                    "N5 ", "N4 ", "N3 ", "N2 ", "N1 ", "IT-Japanese ", "Java Basic ", "Spring Boot"
+                ]
+            },
+            primaryHeader: {
+                text: ""
+            },
+            dataSeries: [{
+                seriesType: "bar",
+                collectionAlias: "Số lượng bài viết của mỗi thể loại",
+                data: [N5,N4,N3,N2,N1,totalITJP,totalJava,totalSpring]
+            }]
+        });
+    });
+</script>
+
+
+</body>
+</html>

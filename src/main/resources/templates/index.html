@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
+<head>
+    <meta charset="UTF-8">
+    <title>Trang chu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/df2eef8f6b.js" crossorigin="anonymous"></script>
+
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+<div th:replace="fragments/menu :: menu"> </div>
+<!-- Layout Post -->
+<div class="container-fluid text-center">
+    <div class="row">
+<!--    Get All Post-->
+            <div class="col-sm-4" th:each="post:${listPost}">
+                <img th:src="@{images/N3.jpeg}" alt="image not found"/>
+                <p class="card-text" th:utext="${#strings.abbreviate(post.content, 100)}">content</p>
+                <a class="card-text" style="font-family:courier;" th:href="@{/posts/{id}(id=${post.user.id})}"  th:text="${post.user.fullname}">Tac gia</a>
+                <span class="card-text" style="font-family:courier;" th:text="${post.create_at}">Ngay viet</span>
+                <div th:if="${post.comments.size > 0}" style="display:inline">
+                    <i class="fa fa-commenting-o" aria-hidden="true"></i>
+                    <span class="me-2" th:text="${post.comments.size}"></span>
+                </div>
+                <div>
+                    <a th:text="#{label.menu.post.see-more}" th:href="@{/post/{id}(id=${post.id})}" class="card-link">See more...</a>
+                </div>
+            </div>
+</div>
+
+<div class="container-fluid text-center">
+    <nav>
+        <ul class="pagination">
+            <li class="page-item" th:each="paging : ${pagings}" th:classappend="${paging.active}">
+                <a class="page-link" th:href="${'/' + paging.index}" th:text="${paging.title}"></a>
+            </li>
+        </ul>
+    </nav>
+</div>
+
+<div th:replace="fragments/footer :: footer"></div>
+</body>
+</html>

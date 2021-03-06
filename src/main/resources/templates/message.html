@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+
+<p th:text="${message}"></p>
+<a th:text="#{label.message.content}" th:href="@{/login}"> Quay lại trang chủ  </a>
+
+</body>
+</html>

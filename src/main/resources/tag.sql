@@ -1,0 +1,13 @@
+insert into tag(name) values('N1');
+insert into tag(name) values('N2');
+insert into tag(name) values('N3');
+insert into tag(name) values('N4');
+insert into tag(name) values('N5');
+insert into tag(name) values('Tiếng nhật IT');
+insert into tag(name) values('Java cơ bản');
+insert into tag(name) values('Spring Boot');
+insert into tag(name) values('Từ vựng ');
+insert into tag(name) values('Kanji ');
+insert into tag(name) values('Ngữ pháp ');
+insert into tag(name) values('Đọc hiểu');
+insert into tag(name) values('Đề thi');

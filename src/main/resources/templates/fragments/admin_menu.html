@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{label.admin.menu.title}">Title</title>
+</head>
+<body>
+<div th:fragment="admin_menu">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid text-center">
+            <a class="navbar-brand">
+                <img th:src="@{~/images/logo_small.jpeg}" alt="image not found" style="width:40px;"/>
+            </a>
+            <a class="navbar-brand" th:text="#{label.admin.menu.user}" th:href="@{/admin/manage-user}"> Manage User</a>
+            <a class="navbar-brand" th:text="#{label.admin.menu.post}" th:href="@{/admin/manage-post}"> Manage Post</a>
+            <form class="navbar-form navbar-left" action="#" th:action="@{/search}" th:object="${searchRequest}" method="post">
+                <input type="text" th:field="*{term}" class="form-control mb-3" id="term" th:placeholder="#{label.admin.menu.search.placeholder}">
+                <button type="submit" th:text="#{label.admin.menu.search}" class="btn btn-primary">Search</button>
+            </form>
+
+            <div sec:authorize="isAuthenticated()">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:text="#{label.admin.menu.logout}" th:href="@{~/login}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+                <p th:text="${user.fullname}" class="navbar-brand navbar-right"> User</p>
+                <p th:text="#{label.admin.menu.hello}" class="navbar-brand navbar-right">Xin chào </p>
+                <p class="navbar-brand navbar-right">   </p>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav navbar-nav navbar-toggler " th:href="@{/?lang=jp}">
+                    <img th:src="@{~/images/icon_jp.png}" alt="image not found" style="width:40px;"/>
+                </a>
+                </li>
+                <li> <a class="nav navbar-nav navbar-toggler " th:href="@{/?lang=vi}">
+                    <img th:src="@{~/images/icon_vn.png}" alt="image not found" style="width:40px;"/>
+
+                </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+</div>
+
+</body>
+</html>

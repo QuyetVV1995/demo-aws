@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{label.login.title}">Đăng nhập</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+
+<br>
+<div class = "container">
+    <div class = "row">
+        <div class = "col-md-6 col-md-offset-3">
+
+            <div th:unless="${messageResetPassword} == null">
+                <p th:text="${messageResetPassword}"></p>
+            </div>
+
+            <h1 th:text="#{label.login.title}"> Đăng nhập  </h1>
+            <form th:action="@{/login}" method="post">
+
+                <!-- error message -->
+                <div th:if="${param.error}">
+                    <div th:text="#{label.login.error}" class="alert alert-danger">Invalid email or
+                        password.</div>
+                </div>
+
+                <!-- logout message -->
+                <div th:if="${param.logout}">
+                    <div th:text="#{label.login.logout}" class="alert alert-info">You have been logged out.</div>
+                </div>
+
+                <div class = "form-group">
+                    <label for ="username"> Email </label> :
+                    <input type="text" class = "form-control" id ="username" name = "username"
+                           th:placeholder="#{label.login.email.placeholder}" autofocus="autofocus">
+                </div>
+
+                <div class="form-group">
+                    <label th:text="#{label.login.password}" for="password">Password</label>:
+                    <input type="password" id="password" name="password" class="form-control"
+                                                                   th:placeholder="#{label.login.password.placeholder}" />
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3">
+                            <input type="submit" name="login-submit" id="login-submit"
+                                   class="form-control btn btn-primary" th:value="#{label.login.button}" />
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <a th:text="#{label.login.forgot-password}" th:href="@{/forgot_password}">Quên mật khẩu?</a>
+            <div class="form-group">
+                <span th:text="#{label.login.text}">Tạo tài khoản mới? </span>
+                <a th:text="#{label.login.link.registration}" th:href="@{/registration}">Đăng ký</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

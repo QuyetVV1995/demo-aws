@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{label.admin.manage-post.title}">Manage post</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://kit.fontawesome.com/df2eef8f6b.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div th:replace="/../fragments/header :: header"> </div>
+<div th:replace="/../fragments/admin_menu :: admin_menu"> </div>
+
+<h1 th:text="#{label.admin.manage-post.title}">
+    Manage post
+</h1>
+<a class="badge badge-danger" th:text="#{label.admin.manage-post.create-post}" th:href="@{/admin/post/create-post}"> Create new post</a>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th th:text="#{label.admin.manage-post.title-of-post}" scope="col">Title</th>
+                    <th th:text="#{label.admin.manage-post.content}" scope="col">Content</th>
+                    <th th:text="#{label.admin.manage-post.tag}" scope="col">Tag</th>
+                    <th th:text="#{label.admin.manage-post.author}" scope="col">Author</th>
+                    <th scope="col">       </th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="post:${postList}">
+                    <th scope="row" th:text="${post.id}">id</th>
+                    <td th:text="${post.title}">title</td>
+                    <td th:text="${#strings.abbreviate(post.content, 100)}">content</td>
+                    <td >
+                        <ul th:each="tag:${post.tags}">
+                            <li th:text="${tag.name}"></li>
+                        </ul>
+                    </td>
+                    <td th:text="${post.user.fullname}">Author</td>
+                    <td >
+                        <a th:href="@{/admin/posts/view/{id}(id=${post.id})}"><i class="fa fa-eye" aria-hidden="true"></i></a>
+                        <a th:href="@{/admin/posts/edit/{id}(id=${post.id})}"><i class="fas fa-edit"></i></a>
+                        <a th:href="@{/admin/posts/delete/{id}(id=${post.id})}"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>

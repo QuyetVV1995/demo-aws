@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="menu">
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <a class="navbar-brand" th:href="@{~/}">
+                <img th:src="@{~/images/logo_small.jpeg}" alt="image not found" style="width:40px;"/>
+            </a>
+            <ul class="nav navbar-nav">
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">N5 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.vocabulary}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=9)}"　>Từ vựng </a></li>
+                        <li><a th:text="#{label.menu.kanji}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=10)}">Kanji </a></li>
+                        <li><a th:text="#{label.menu.grammar}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=11)}">Ngữ pháp </a></li>
+                        <li><a th:text="#{label.menu.reading}"th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=12)}">Đọc hiểu </a></li>
+                        <li><a th:text="#{label.menu.exam}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=13)}">Đề thi </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">N4 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.vocabulary}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=9)}"　>Từ vựng </a></li>
+                        <li><a th:text="#{label.menu.kanji}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=10)}">Kanji </a></li>
+                        <li><a th:text="#{label.menu.grammar}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=11)}">Ngữ pháp </a></li>
+                        <li><a th:text="#{label.menu.reading}"th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=12)}">Đọc hiểu </a></li>
+                        <li><a th:text="#{label.menu.exam}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=13)}">Đề thi </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">N3 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.vocabulary}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=9)}"　>Từ vựng </a></li>
+                        <li><a th:text="#{label.menu.kanji}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=10)}">Kanji </a></li>
+                        <li><a th:text="#{label.menu.grammar}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=11)}">Ngữ pháp </a></li>
+                        <li><a th:text="#{label.menu.reading}"th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=12)}">Đọc hiểu </a></li>
+                        <li><a th:text="#{label.menu.exam}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=13)}">Đề thi </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">N2 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.vocabulary}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=9)}"　>Từ vựng </a></li>
+                        <li><a th:text="#{label.menu.kanji}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=10)}">Kanji </a></li>
+                        <li><a th:text="#{label.menu.grammar}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=11)}">Ngữ pháp </a></li>
+                        <li><a th:text="#{label.menu.reading}"th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=12)}">Đọc hiểu </a></li>
+                        <li><a th:text="#{label.menu.exam}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=13)}">Đề thi </a></li>
+                    </ul>
+                </li>
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">N1 <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.vocabulary}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=9)}"　>Từ vựng </a></li>
+                        <li><a th:text="#{label.menu.kanji}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=10)}">Kanji </a></li>
+                        <li><a th:text="#{label.menu.grammar}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=11)}">Ngữ pháp </a></li>
+                        <li><a th:text="#{label.menu.reading}"th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=12)}">Đọc hiểu </a></li>
+                        <li><a th:text="#{label.menu.exam}" th:href="@{/posts/{category}/{tag_id}(category=N5,tag_id=13)}">Đề thi </a></li>
+                    </ul>
+                </li>
+
+                <li><a th:text="#{label.menu.it-japan}" th:href="@{/posts/{category}/{tag_id}(category=it-japanese,tag_id=6)}"> Tiếng nhật IT</a></li>
+
+                <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">IT <span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <li><a th:text="#{label.menu.java-basic}" th:href="@{/posts/{category}/{tag_id}(category=java-basic,tag_id=7)}"> Java cơ bản</a></li>
+                        <li><a th:href="@{/posts/{category}/{tag_id}(category=spring-boot,tag_id=8)}"> Spring Boot</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+<!--            Search-->
+            <form class="navbar-form navbar-left" action="#" th:action="@{/search}" th:object="${searchRequest}" method="post">
+                <input type="text" th:field="*{term}" class="form-control mb-3" id="term" th:placeholder="#{label.menu.search.placeholder}">
+                <button type="submit" class="btn btn-primary" th:text="#{label.menu.search}">Search</button>
+            </form>
+
+
+            <div th:if="${user.fullname} == null">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:text="#{label.menu.login}" th:href="@{~/login}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                </ul>
+            </div>
+
+            <div th:unless="${user.fullname} == null">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a th:text="#{label.menu.logout}" th:href="@{~/login}"><span class="glyphicon glyphicon-log-in"></span> Logout</a></li>
+                </ul>
+                <p th:text="${user.fullname}" class="navbar-brand navbar-right"> User</p>
+                <p th:text="#{label.menu.hello}" class="navbar-brand navbar-right">Xin chào </p>
+                <p class="navbar-brand navbar-right">   </p>
+            </div>
+
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a class="nav navbar-nav navbar-toggler " th:href="@{/?lang=jp}">
+                    <img th:src="@{~/images/icon_jp.png}" alt="image not found" style="width:40px;"/>
+                </a>
+                </li>
+                <li> <a class="nav navbar-nav navbar-toggler " th:href="@{/?lang=vi}">
+                    <img th:src="@{~/images/icon_vn.png}" alt="image not found" style="width:40px;"/>
+
+                </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Search Result</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div th:replace="fragments/header :: header"> </div>
+<div th:replace="fragments/menu :: menu"> </div>
+
+<div class="container">
+    <div class="row mt-5 justify-content-center">
+        <h2 th:text="#{label.search-result}"> Ket qua tim kiem</h2>
+        <div class="card mx-2 mb-3" style="max-width: 300px;" th:each="post: ${posts}">
+            <div class="card-body">
+                <h5 class="card-title" th:text="${post.title}"></h5>
+                <h6 class="card-subtitle mb-2 text-muted" th:text="${post.getUser().getFullname()}">Card subtitle</h6>
+                <p class="card-text" th:text="${#strings.abbreviate(post.content, 100)}">content</p>
+                <a th:text="#{label.menu.post.see-more}" th:href="@{/post/{id}(id=${post.id})}" class="card-link">See more...</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

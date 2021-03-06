@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div th:fragment="footer">
+    <footer class="bg-light text-center text-lg-start">
+        <!-- Grid container -->
+        <div class="container p-4">
+            <div class="col ">
+                <h4 th:text="#{label.footer.tag}" >Tag:</h4>
+                <ul class="list-inline">
+                    <li><a th:href="@{/tag/5}"> N5</a></li>
+                    <li><a th:href="@{/tag/4}"> N4</a></li>
+                    <li><a th:href="@{/tag/3}"> N3</a></li>
+                    <li><a th:href="@{/tag/2}"> N2</a></li>
+                    <li><a th:href="@{/tag/1}"> N1</a></li>
+                    <li><a th:href="@{/tag/6}"> Tiếng nhật IT</a></li>
+                    <li><a th:href="@{/tag/7}"> Java cơ bản</a></li>
+                    <li><a th:href="@{/tag/8}"> Spring Boot</a></li>
+                    <li><a th:href="@{/tag/9}"> Từ vựng</a></li>
+                    <li><a th:href="@{/tag/10}"> Kanji </a></li>
+                    <li><a th:href="@{/tag/11}"> Ngữ pháp</a></li>
+                    <li><a th:href="@{/tag/12}"> Đọc hiểu</a></li>
+                    <li><a th:href="@{/tag/13}"> Đề thi</a></li>
+                </ul>
+                <h4 th:text="#{label.footer.follow}">Follow:</h4>
+                <ul class="list-inline">
+                    <li><a th:href="@{https://github.com/QuyetVV1995}"><i class="fab fa-github"></i> Github</a></li>
+                    <li><a th:href="@{https://www.facebook.com/vu.vanquyet.50}"><i class="fa fa-facebook"></i> Facebook </a> </li>
+                    <li><a th:href="@{https://mail.google.com}"><i class="fas fa-envelope"></i> Email</a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+            © 2020 Copyright
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- Footer -->
+</div>
+</body>
+</html>

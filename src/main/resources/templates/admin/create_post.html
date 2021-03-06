@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"  lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{label.admin.create-post.title}">Trang chu</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../../css/style.css">
+    <script src="https://kit.fontawesome.com/df2eef8f6b.js" crossorigin="anonymous"></script>
+
+
+    <link th:rel="stylesheet" th:href="@{/webjars/font-awesome/5.11.2/css/all.css} "/>
+
+    <link th:rel="stylesheet" th:href="@{/assets/simplemde/simplemde.min.css}"/>
+</head>
+<body>
+<div th:replace="/../fragments/header :: header"> </div>
+<div th:replace="/../fragments/admin_menu :: admin_menu"> </div>
+
+<div class="container">
+    <div class="row">
+        <div class="container-fluid ">
+
+            <h1 th:text="#{label.admin.create-post.title}">Create new post</h1>
+
+            <form th:action="@{/admin/post/save-post}" enctype="multipart/form-data" method="post" th:object="${newPost}">
+
+                <div class="form-group">
+                    <label th:text="#{label.admin.create-post.title-of-post}" for="title">Title:</label>
+                    <input type="text" id="title" placeholder="Title" autocomplete="off" class="form-control"
+                           th:field="*{title}"/>
+                </div>
+                <div class="checkbox-inline" th:each="tag:${tagList}">
+                    <input type="checkbox"
+                           th:value="${tag.id}" id="${tag.id}"
+                           name="tags">
+                    <label class="checkbox-inline" for="${tag.id}" th:text="${tag.name}"> Tag </label>
+                </div>
+                <div class="form-group">
+                    <label th:text="#{label.admin.create-post.content}" for="content">Content:</label>
+                    <textarea type="textarea" style="height:500px;" id="content" placeholder="Content" class="form-control"
+                              th:field="*{content}" autocomplete="off"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label th:text="#{label.admin.create-post.choose-file}" class="control-label" > Choose File: </label>
+                    <input type="file" id="photos"  name="photos" multiple th:field="*{file}" />
+
+                </div>
+
+                <div class="form-group">
+                    <button th:text="#{label.admin.create-post.button}" type="submit" class="btn btn-success">Submit</button>
+                </div>
+            </form>
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+            <script>
+    $(document).ready(() => {
+      if (window.File && window.FileList && window.FileReader) {
+        $("#photos").on("change", e => {
+          let files = Array.from(e.target.files);
+          console.log(files.length);
+          files.forEach((f, index) => {
+            let fileReader = new FileReader();
+            fileReader.onload = (e => {
+              let file = e.target;
+              $("<div class=\"pip\">" +
+                "<img class=\"imageThumb\" src=\"" + e.target.result + "\" title=\"" + file.name + "\"/>" +
+                "<br/><span class=\"remove\">Remove image</span>" +
+                "</div>").insertAfter("#photos");
+
+              $(".remove").click(function(){
+                $(this).parent(".pip").remove();
+                files.splice(index, 1);
+                console.log(files.length);
+              });
+            });
+            fileReader.readAsDataURL(f);
+          });
+
+        });
+      } else {
+        alert("Your browser doesn't support to File API")
+      }
+    });
+  </script>
+
+  <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+  <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+  <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+  <script th:src="@{/assets/simplemde/simplemde.min.js}"></script>
+
+<script>
+    var simplemde = new SimpleMDE({element: document.getElementById("content")});
+</script>
+        </div>
+    </div>
+</div>
+
+
+
+</body>
+</html>
