@@ -3,7 +3,7 @@
       xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5" >
 <head>
     <meta charset="UTF-8">
-    <title>Post of Tag</title>
+    <title th:text="#{label.post-of-tag}">Post of Tag</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -19,7 +19,7 @@
 
 <div class="row">
     <div class="col-sm-3" th:each="post:${posts}">
-        <p class="card-text" th:utext="${#strings.abbreviate(post.content, 150)}">content</p>
+        <p class="card-text" th:utext="${#strings.abbreviate(post.title, 150)}">content</p>
         <a class="card-text" style="font-family:courier;" th:href="@{/posts/{id}(id=${post.user.id})}"  th:text="${post.user.fullname}">Tac gia</a>
         <span class="card-text" style="font-family:courier;" th:text="${post.create_at}">Ngay viet</span>
         <div th:if="${post.comments.size > 0}" style="display:inline">
