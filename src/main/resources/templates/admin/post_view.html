@@ -20,7 +20,7 @@
     <em class="me-2" th:text="${#temporals.format(post.create_at, 'dd-MMM-yyyy')}"></em>
     <!--    Tag-->
     <ul  th:each="tag : ${tagList}">
-        <li><a th:href="${'/tag/' + tag.id}" th:text="${tag.name}">tag link</a></li>
+        <li th:text="${tag.name}">tag link</li>
     </ul>
     <p th:utext="${post.content}" class="mt-2"></p>
 </div>

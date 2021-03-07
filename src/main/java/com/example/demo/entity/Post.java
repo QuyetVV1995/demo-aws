@@ -21,7 +21,7 @@ import java.util.Set;
 @Indexed //Thêm annotation này báo cho Hibernate Search đánh chỉ mục bảng này
 public class Post {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @FullTextField //Đánh chỉ mục full text

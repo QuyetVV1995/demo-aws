@@ -68,6 +68,7 @@ public class AdminPostController {
         Post post = new Post(postRequest.getTitle(),"", postRequest.getTags());
         post.setContent(markdownToHTML(postRequest.getContent()));
         post.setUser(user);
+        post.setId(postRequest.getId());
         postService.save(post);
         return "redirect:/admin/manage-post";
     }
@@ -80,6 +81,7 @@ public class AdminPostController {
         model.addAttribute("searchRequest", new SearchRequest());
         Post post = postService.findById(id).get();
         PostRequest postRequest = new PostRequest(post.getId(), post.getTitle(), post.getContent(), post.getTags());
+        postRequest.setId(id);
         postRequest.setFile(null);
         model.addAttribute("newPost", postRequest);
         List<Tag> tagList = tagService.findAll();
