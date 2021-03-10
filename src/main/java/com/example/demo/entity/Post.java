@@ -8,6 +8,7 @@ import org.hibernate.search.mapper.pojo.mapping.definition.annotation.Indexed;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -32,6 +33,15 @@ public class Post {
     private String content;
 
     private LocalDate create_at;
+
+    @PrePersist //Trước khi lưu khi khởi tạo record
+    public void prePersist() {
+        create_at = LocalDate.now();
+    }
+    @PreUpdate //Khi cập nhật record
+    public void preUpdate() {
+        create_at = LocalDate.now();
+    }
 
     public Post(String title, String content, Set<Tag> tags) {
         this.title = title;

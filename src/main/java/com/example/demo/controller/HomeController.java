@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class HomeController {
@@ -73,10 +74,11 @@ public class HomeController {
             if (page == null) {
                 page = 0;
             }
-            Page<Post> pagePosts = postService.findAllPaging(page, 9); //Mỗi page 9 Post
+            Page<Post> pagePosts = postService.findAllPaging(page, 12); //Mỗi page 9 Post
 
             List<Post> posts = pagePosts.getContent();
             model.addAttribute("listPost", posts);
+
             //Sinh ra cấu trúc dữ liệu phân trang
             List<Paging> pagings = Paging.generatePages(page, pagePosts.getTotalPages());
             model.addAttribute("pagings", pagings);

@@ -19,8 +19,15 @@
 <div class="container-fluid text-center">
     <div class="row">
 <!--    Get All Post-->
-            <div class="col-sm-4" th:each="post:${listPost}">
-                <img th:src="@{images/N3.jpeg}" alt="image not found"/>
+            <div class="col-sm-3" th:each="post:${listPost}">
+                <div th:each="tag:${post.tags}">
+                    <div th:switch="${tag.name}">
+                        <p th:case="'Java_Basic'"> <img src="/images/java.png" alt="image not found"> </p>
+                        <p th:case="#{Spring Boot}">Spring boot</p>
+                        <p th:case="*">Not define</p>
+                    </div>
+                </div>
+                <span class="card-text" style="font-family:courier;" th:text="${post.title}">Title</span>
                 <p class="card-text" th:utext="${#strings.abbreviate(post.content, 100)}">content</p>
                 <a class="card-text" style="font-family:courier;" th:href="@{/posts/{id}(id=${post.user.id})}"  th:text="${post.user.fullname}">Tac gia</a>
                 <span class="card-text" style="font-family:courier;" th:text="${post.create_at}">Ngay viet</span>

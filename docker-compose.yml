@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  mainichishinpo:
+    image: mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=123456
+      - MYSQL_DATABASE=mainichishinpo
+      - MYSQL_USER=admin
+      - MYSQL_PASSWORD=123456
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mainichishinpo.sql:/docker-entrypoint-initdb.d/init.sql
+  web:
+    image: mainichishinpo:latest
+    ports:
+      - "8005:8080"
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mainichishinpo:3306/mainichishinpo?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+    depends_on:
+      - mainichishinpo
+
+volumes:
+  mysql-data:
