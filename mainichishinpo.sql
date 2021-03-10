@@ -30,7 +30,7 @@
     create table post(
         id bigint not null primary key auto_increment,
         title varchar(255),
-        content text,
+        content longtext,
         user_id bigint not null,
         create_at datetime
     );

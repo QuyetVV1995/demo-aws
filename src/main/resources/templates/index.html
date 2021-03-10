@@ -23,7 +23,7 @@
                 <div th:each="tag:${post.tags}">
                     <div th:switch="${tag.name}">
                         <p th:case="'Java_Basic'"> <img src="/images/java.png" alt="image not found"> </p>
-                        <p th:case="#{Spring Boot}">Spring boot</p>
+                        <p th:case="'Spring_Boot'"> <img src="/images/springboot.png" alt="image not found"></p>
                         <p th:case="*">Not define</p>
                     </div>
                 </div>
