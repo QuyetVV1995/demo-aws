@@ -23,12 +23,12 @@ Sep 2013 - May 2019 (expected):
 Work Experience 
 ----------
 
-###April 2017 - March 2018
+### April 2017 - March 2018
   **Member**; SIPLAB
 
 * Research MCU: 8051, Arduino, PIC16F877A, ARM, Raspberry Pi 3
 
-###April 2018 - March 2019
+### April 2018 - March 2019
    **Tester**; FPT Software
 
 Main responsibilities:
@@ -37,7 +37,7 @@ Main responsibilities:
 * Write evaluation reports based on test results.
           Using Jira, Bitbucket, Ebtresos, Cygwin to develop the system.
 
-###September 2020 - March 2021
+### September 2020 - March 2021
   **Student**; Techmaster
 
 * Learn Java Core and Spring boot.
