@@ -67,4 +67,4 @@ by taking advantage of what I learned at school.
 * In addition to Java skills, I can program in some other languages such as: C, Python, Matlab.
 
 
-Link:[CV](https://drive.google.com/file/d/1asaMSdYch9SRAdimF_BO8_CLlrwKgP8p/view?usp=sharing)
+Link: [CV](https://drive.google.com/file/d/1asaMSdYch9SRAdimF_BO8_CLlrwKgP8p/view?usp=sharing)
