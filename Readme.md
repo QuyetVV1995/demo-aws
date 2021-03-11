@@ -15,8 +15,9 @@ Email:                          quyeta2ubqn@gmail.com
 Education
 ---------
 
-Sep 2013 - May 2019 (expected)
-:   **Bachelor, Electronics and Telecommunications**; HANOI UNIVERSITY OF SECIENE AND TECHNOLOGY
+Sep 2013 - May 2019 (expected): 
+
+**Bachelor, Electronics and Telecommunications**; HANOI UNIVERSITY OF SECIENE AND TECHNOLOGY
 
 
 Work Experience 
@@ -64,3 +65,6 @@ Additional Infomation
 by taking advantage of what I learned at school.
 * I want to work in Japan because I want to become IT engineering (BrSE) in the future.
 * In addition to Java skills, I can program in some other languages such as: C, Python, Matlab.
+
+
+Link:[CV](https://drive.google.com/file/d/1asaMSdYch9SRAdimF_BO8_CLlrwKgP8p/view?usp=sharing)
