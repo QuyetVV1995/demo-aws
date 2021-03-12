@@ -1,6 +1,7 @@
 VU VAN QUYET
-============
+============    
 
+![avatar](./src/main/resources/static/images/avatar.png)
 -------------------     ----------------------------
 Date of birth:                     12/07/1995
 
@@ -9,7 +10,7 @@ Gender:                            Male
 Phone:                            0359296186
 
 Email:                          quyeta2ubqn@gmail.com   
- 
+
 -------------------     ----------------------------
 
 Education
