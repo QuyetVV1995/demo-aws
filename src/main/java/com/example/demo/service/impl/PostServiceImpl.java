@@ -91,7 +91,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Page<Post> findAllPaging(int page, int pageSize) {
-        return postRepository.findAll(PageRequest.of(page, pageSize)); // Bổ xung pagination vào đây !
+        return postRepository.findAll(PageRequest.of(page, pageSize,Sort.by(Sort.Direction.DESC, "id"))); // Bổ xung pagination vào đây !
     }
 
     @Override
