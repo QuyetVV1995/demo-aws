@@ -32,6 +32,8 @@ public class Post {
     @Column(length=5000)
     private String content;
 
+    @Basic(optional = false)
+    @Column(name = "create_at", nullable = false)
     private LocalDate create_at;
 
     @PrePersist //Trước khi lưu khi khởi tạo record

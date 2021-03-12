@@ -18,6 +18,7 @@ import org.hibernate.search.mapper.orm.session.SearchSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -90,7 +91,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public Page<Post> findAllPaging(int page, int pageSize) {
-        return postRepository.findAll(PageRequest.of(page, pageSize)); // Bổ xung pagination vào đây !
+        return postRepository.findAll(PageRequest.of(page, pageSize, Sort.by("id").descending())); // Bổ xung pagination vào đây !
     }
 
     @Override

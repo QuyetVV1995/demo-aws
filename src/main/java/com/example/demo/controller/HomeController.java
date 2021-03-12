@@ -74,7 +74,7 @@ public class HomeController {
             if (page == null) {
                 page = 0;
             }
-            Page<Post> pagePosts = postService.findAllPaging(page, 12); //Mỗi page 9 Post
+            Page<Post> pagePosts = postService.findAllPaging(page, 12); //Mỗi page 12 Post
 
             List<Post> posts = pagePosts.getContent();
             model.addAttribute("listPost", posts);
