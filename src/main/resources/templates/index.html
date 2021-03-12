@@ -20,7 +20,7 @@
     <div class="row">
 <!--    Get All Post-->
         <div></div>
-            <div class="col-sm-4" th:each="post:${listPost}">
+            <div class="col-sm-3" th:each="post:${listPost}">
                 <div th:each="tag:${post.tags}">
                     <div th:switch="${tag.name}">
                         <p th:case="'Java_Basic'"> <img src="/images/java.png" alt="image not found"> </p>
