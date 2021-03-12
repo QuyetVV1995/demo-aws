@@ -43,7 +43,7 @@ public class PostServiceImpl implements PostService {
 
     @Override
     public List<Post> findAll() {
-        return postRepository.findAll();
+        return postRepository.findAll(Sort.by(Sort.Direction.DESC, "id"));
     }
 
     @Override
